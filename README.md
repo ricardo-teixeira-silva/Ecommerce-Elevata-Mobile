@@ -8,14 +8,14 @@ O projeto foi criado para demonstrar a implementação de boas práticas de arqu
 
 Entre as principais funcionalidades implementadas estão:
 
-* Autenticação de usuários;
-* Listagem de produtos;
-* Pesquisa de produtos;
-* Visualização dos detalhes de um produto;
-* Gerenciamento de produtos favoritos;
-* Navegação protegida por autenticação;
-* Persistência da sessão do usuário;
-* Interface responsiva baseada em um protótipo do Figma.
+- Autenticação de usuários;
+- Listagem de produtos;
+- Pesquisa de produtos;
+- Visualização dos detalhes de um produto;
+- Gerenciamento de produtos favoritos;
+- Navegação protegida por autenticação;
+- Persistência da sessão do usuário;
+- Interface responsiva baseada em um protótipo do Figma.
 
 Como se trata de um projeto demonstrativo, nenhuma informação é persistida em um banco de dados real.
 
@@ -29,17 +29,17 @@ https://www.figma.com/design/J7T5ggRKlo813JN73AHD4c/Ecommerce-Elevata?node-id=0-
 
 O protótipo contempla toda a experiência da aplicação, incluindo:
 
-* Tela de Login;
-* Tela Inicial;
-* Listagem de Produtos;
-* Pesquisa de Produtos;
-* Detalhes do Produto;
-* Produtos Favoritos;
-* Componentes reutilizáveis;
-* Guia de cores;
-* Tipografia;
-* Espaçamentos;
-* Ícones e elementos visuais.
+- Tela de Login;
+- Tela Inicial;
+- Listagem de Produtos;
+- Pesquisa de Produtos;
+- Detalhes do Produto;
+- Produtos Favoritos;
+- Componentes reutilizáveis;
+- Guia de cores;
+- Tipografia;
+- Espaçamentos;
+- Ícones e elementos visuais.
 
 Todo o desenvolvimento da interface buscou manter fidelidade ao design proposto no Figma.
 
@@ -69,16 +69,16 @@ Essa API foi utilizada apenas para fins de demonstração, permitindo implementa
 
 # Tecnologias
 
-* React Native
-* Expo
-* Expo Router
-* TypeScript
-* NativeWind (Tailwind CSS)
-* Axios
-* React Hook Form
-* Zod
-* AsyncStorage
-* Context API
+- React Native
+- Expo
+- Expo Router
+- TypeScript
+- NativeWind (Tailwind CSS)
+- Axios
+- React Hook Form
+- Zod
+- AsyncStorage
+- Zustand
 
 ---
 
@@ -90,11 +90,11 @@ Com o NativeWind é possível utilizar classes utilitárias diretamente na propr
 
 Entre as vantagens dessa abordagem estão:
 
-* Padronização da interface;
-* Código mais limpo e organizado;
-* Reutilização de estilos;
-* Facilidade de manutenção;
-* Excelente integração com Expo e Expo Router.
+- Padronização da interface;
+- Código mais limpo e organizado;
+- Reutilização de estilos;
+- Facilidade de manutenção;
+- Excelente integração com Expo e Expo Router.
 
 O projeto foi desenvolvido utilizando a versão mais recente estável do **NativeWind**, recomendada para aplicações em produção.
 
@@ -177,11 +177,11 @@ Enquanto o MVVM é responsável por separar as responsabilidades da aplicação,
 
 Essa combinação proporciona:
 
-* Separação entre interface e regras de negócio;
-* Código organizado e escalável;
-* Facilidade de manutenção;
-* Reutilização de componentes;
-* Navegação declarativa baseada em arquivos.
+- Separação entre interface e regras de negócio;
+- Código organizado e escalável;
+- Facilidade de manutenção;
+- Reutilização de componentes;
+- Navegação declarativa baseada em arquivos.
 
 A estrutura principal do projeto é organizada da seguinte forma:
 
@@ -230,10 +230,10 @@ Essa camada contém os modelos utilizados durante toda a aplicação, representa
 
 Exemplos:
 
-* Product;
-* User;
-* LoginRequest;
-* LoginResponse.
+- Product;
+- User;
+- LoginRequest;
+- LoginResponse.
 
 ---
 
@@ -247,9 +247,9 @@ As telas não possuem regras de negócio.
 
 Entre suas responsabilidades estão:
 
-* Renderizar componentes;
-* Exibir estados;
-* Disparar eventos do usuário.
+- Renderizar componentes;
+- Exibir estados;
+- Disparar eventos do usuário.
 
 ---
 
@@ -261,13 +261,13 @@ Ela atua como intermediária entre a View e os serviços responsáveis pelo cons
 
 Suas responsabilidades incluem:
 
-* Chamadas HTTP;
-* Tratamento de erros;
-* Gerenciamento de estados;
-* Controle de loading;
-* Validações;
-* Transformação de dados;
-* Preparação das informações para exibição na interface.
+- Chamadas HTTP;
+- Tratamento de erros;
+- Gerenciamento de estados;
+- Controle de loading;
+- Validações;
+- Transformação de dados;
+- Preparação das informações para exibição na interface.
 
 A View apenas consome os estados e métodos disponibilizados pela ViewModel.
 
@@ -283,11 +283,11 @@ Cada arquivo localizado dentro da pasta `app` representa automaticamente uma rot
 
 Além disso, o projeto utiliza:
 
-* `_layout.tsx` para layouts compartilhados;
-* Grupos de rotas como `(auth)` e `(tabs)`;
-* Proteção de rotas autenticadas;
-* Navegação aninhada;
-* Organização modular das telas.
+- `_layout.tsx` para layouts compartilhados;
+- Grupos de rotas como `(auth)` e `(tabs)`;
+- Proteção de rotas autenticadas;
+- Navegação aninhada;
+- Organização modular das telas.
 
 Essa abordagem torna a estrutura da aplicação mais organizada e facilita sua manutenção e evolução.
 
@@ -317,11 +317,11 @@ Responsável pela navegação utilizando Expo Router.
 
 Contém:
 
-* Rotas da aplicação;
-* Layouts compartilhados;
-* Grupos de rotas;
-* Configuração da navegação;
-* Controle das áreas autenticadas.
+- Rotas da aplicação;
+- Layouts compartilhados;
+- Grupos de rotas;
+- Configuração da navegação;
+- Controle das áreas autenticadas.
 
 ---
 
@@ -331,11 +331,11 @@ Componentes reutilizáveis utilizados em toda a aplicação.
 
 Exemplos:
 
-* Buttons;
-* Inputs;
-* Cards;
-* Headers;
-* Product Card.
+- Buttons;
+- Inputs;
+- Cards;
+- Headers;
+- Product Card.
 
 ---
 
@@ -361,9 +361,9 @@ Gerencia estados globais da aplicação.
 
 Exemplos:
 
-* Autenticação;
-* Usuário logado;
-* Favoritos.
+- Autenticação;
+- Usuário logado;
+- Favoritos.
 
 ---
 
@@ -401,17 +401,17 @@ Arquivos responsáveis pelos estilos compartilhados da aplicação.
 
 Este projeto foi desenvolvido com foco em:
 
-* Organização de código;
-* Arquitetura escalável;
-* Separação de responsabilidades;
-* Reutilização de componentes;
-* Navegação com Expo Router;
-* Implementação da arquitetura MVVM;
-* Utilização do NativeWind para estilização;
-* Consumo de APIs REST;
-* Gerenciamento de autenticação;
-* Boas práticas em React Native;
-* Estrutura preparada para evolução do projeto.
+- Organização de código;
+- Arquitetura escalável;
+- Separação de responsabilidades;
+- Reutilização de componentes;
+- Navegação com Expo Router;
+- Implementação da arquitetura MVVM;
+- Utilização do NativeWind para estilização;
+- Consumo de APIs REST;
+- Gerenciamento de autenticação;
+- Boas práticas em React Native;
+- Estrutura preparada para evolução do projeto.
 
 ---
 

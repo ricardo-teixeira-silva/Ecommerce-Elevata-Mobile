@@ -1,5 +1,6 @@
 export const fontFamily = {
-  heading: "Roboto_700Bold",
-  subtitle: "Roboto_500Medium",
-  body: "Roboto_400Regular",
+  inter_bold: "Inter_700Bold",
+  inter_semibold: "Inter_600SemiBold",
+  inter_medium: "Inter_500Medium",
+  inter_regular: "Inter_400Regular",
 };

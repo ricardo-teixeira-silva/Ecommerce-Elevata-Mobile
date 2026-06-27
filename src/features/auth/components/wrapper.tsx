@@ -3,14 +3,15 @@ import { ReactNode } from "react";
 import { KeyboardAvoidingView, Platform, ScrollView } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 
-type ContainerProps = {
+type WrapperProps = {
   children: ReactNode;
 };
 
-export const Container = ({ children }: ContainerProps) => {
+export const Wrapper = ({ children }: WrapperProps) => {
   return (
-    <SafeAreaView className="flex-1 bg-color_container p-5 gap-5">
+    <SafeAreaView className="flex-1 bg-color_container">
       <StatusBar style="dark" />
+
       <KeyboardAvoidingView
         style={{ flex: 1 }}
         behavior={Platform.OS === "ios" ? "padding" : "height"}

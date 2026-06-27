@@ -4,7 +4,7 @@ import Octicons from "@expo/vector-icons/Octicons";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
-import { View } from "react-native";
+import { Keyboard, View } from "react-native";
 import { FormDataTypes, formSchema } from "../schemas/login.schema";
 import { useAuth } from "../screens/login/useAuth.model";
 import { FeedbackModal } from "./feedback-modal";
@@ -24,6 +24,7 @@ export const LoginForm = () => {
   });
 
   const onSubmit = (data: FormDataTypes) => {
+    Keyboard.dismiss();
     console.log(data);
     setTempLoading(true);
     setTimeout(() => {

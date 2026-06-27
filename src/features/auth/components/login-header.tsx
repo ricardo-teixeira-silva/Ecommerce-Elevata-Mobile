@@ -1,4 +1,4 @@
-import cart from "@/src/features/login/assets/images/cart.png";
+import cart from "@/src/features/auth/assets/images/cart.png";
 import { Image, Text, View } from "react-native";
 
 export const LoginHeader = () => {

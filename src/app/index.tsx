@@ -1,4 +1,4 @@
-import Login from "../features/login/screens/login/login.view";
+import Login from "../features/auth/screens/login/login.view";
 
 const Index = () => <Login />;
 

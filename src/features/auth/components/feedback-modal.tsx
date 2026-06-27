@@ -12,7 +12,7 @@ export const FeedbackModal = ({
   onCloseModal,
 }: FeedbackModalProps) => {
   return (
-    <Modal animationType="slide" transparent={true} visible={modalVisible}>
+    <Modal animationType="fade" transparent={true} visible={modalVisible}>
       <View className="flex-1 items-center justify-center bg-black/50">
         <View className="w-11/12 rounded-2xl bg-white p-8 gap-6">
           <View className="items-center justify-center">

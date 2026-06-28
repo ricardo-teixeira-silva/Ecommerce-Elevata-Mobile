@@ -226,6 +226,8 @@ Essa combinação proporciona:
 - Reutilização de componentes;
 - Navegação declarativa baseada em arquivos.
 
+<img width="1024" height="1536" alt="mvvm" src="https://github.com/user-attachments/assets/244d3af6-cdb0-47de-99e6-e212a56387e0" />
+
 <img width="1536" height="1024" alt="explicacao mvvm" src="https://github.com/user-attachments/assets/8f2c0eda-143a-4230-9f64-4fe95a6efb42" />
 
 A estrutura principal do projeto é organizada da seguinte forma:

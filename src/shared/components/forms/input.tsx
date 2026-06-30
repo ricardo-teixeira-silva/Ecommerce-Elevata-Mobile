@@ -33,7 +33,7 @@ export const Input = <T extends FieldValues>({
       control={control}
       render={({ field, fieldState }) => (
         <View>
-          <View className="bg-[#F3F4F5] rounded-xl h-14 px-4 flex-row items-center gap-3">
+          <View className="bg-[#EDEEEF] rounded-xl h-14 px-4 flex-row items-center gap-3">
             {iconLeft}
             <TextInput
               className="text-color_gray flex-1 w-full"
@@ -57,9 +57,11 @@ export const Input = <T extends FieldValues>({
               iconRight
             )}
           </View>
-          <Text className="text-red-400 text-[10px] px-2">
-            {fieldState.error?.message}
-          </Text>
+          {fieldState.error?.message ? (
+            <Text className="text-red-400 text-[10px] px-2">
+              {fieldState.error.message}
+            </Text>
+          ) : null}
         </View>
       )}
     />

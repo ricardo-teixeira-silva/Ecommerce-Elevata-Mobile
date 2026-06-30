@@ -26,7 +26,7 @@ export const LoginForm = () => {
   };
 
   return (
-    <View className="flex-1 gap-4">
+    <View className="flex-1 gap-6">
       <Input
         name="username"
         control={control}

@@ -1,5 +1,3 @@
-// src/database/repositories/CartRepository.ts
-
 import { db } from "../database";
 import { CartEntity } from "../types";
 

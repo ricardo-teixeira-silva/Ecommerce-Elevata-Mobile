@@ -1,3 +1,3 @@
 import * as SQLite from "expo-sqlite";
 
-export const db = await SQLite.openDatabaseAsync("elevata.db");
+export const db = SQLite.openDatabaseSync("elevata.db");

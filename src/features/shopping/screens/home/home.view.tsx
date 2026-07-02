@@ -1,9 +1,17 @@
-import { Text, View } from "react-native";
+import { Container } from "@/src/shared/components";
+import { InputSearch } from "@/src/shared/components/input-search";
+import { CategoryCarousel } from "../../components/category-carousel";
+import { OfferBanner } from "../../components/offer-banner";
+import { useHomeModel } from "./home.model";
 
 export default function Home() {
+  const { searchProducts, categories, isLoadingCategories } = useHomeModel();
+
   return (
-    <View className="flex-1 justify-center items-center">
-      <Text>Home</Text>
-    </View>
+    <Container>
+      <InputSearch onSearch={searchProducts} placeholder="Buscar produtos" />
+      <OfferBanner />
+      <CategoryCarousel categories={categories} loading={isLoadingCategories} />
+    </Container>
   );
 }

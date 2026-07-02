@@ -1,6 +1,6 @@
 import { StatusBar } from "expo-status-bar";
 import { ReactNode } from "react";
-import { KeyboardAvoidingView, Platform, ScrollView } from "react-native";
+import { KeyboardAvoidingView, Platform, ScrollView, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 
 type ContainerProps = {
@@ -9,22 +9,23 @@ type ContainerProps = {
 
 export const Container = ({ children }: ContainerProps) => {
   return (
-    <SafeAreaView className="flex-1 bg-color_container p-5 gap-5">
+    <SafeAreaView
+      className="flex-1 bg-color_container"
+      edges={["left", "right", "bottom"]}
+    >
       <StatusBar style="dark" />
       <KeyboardAvoidingView
         style={{ flex: 1 }}
         behavior={Platform.OS === "ios" ? "padding" : "height"}
       >
         <ScrollView
-          contentContainerStyle={{
-            flexGrow: 1,
-            justifyContent: "center",
-            padding: 20,
-            gap: 20,
-          }}
+          scrollEnabled
+          contentContainerStyle={{ flexGrow: 0 }}
+          automaticallyAdjustKeyboardInsets
+          scrollEventThrottle={16}
           keyboardShouldPersistTaps="handled"
         >
-          {children}
+          <View className="flex-1 px-5 py-4 gap-6">{children}</View>
         </ScrollView>
       </KeyboardAvoidingView>
     </SafeAreaView>

@@ -12,7 +12,6 @@ export const useAuth = () => {
     onSuccess: async (data) => {
       await saveToken(data.accessToken);
       setUser(data);
-      console.log({ sucesso: true, data });
       router.navigate("/success");
     },
     onError: (error) => {

@@ -3,7 +3,7 @@ import { Image, Text, View } from "react-native";
 
 export const LoginHeader = () => {
   return (
-    <View className="flex-1 items-center pt-2">
+    <View className="flex-1 items-center pt-4">
       <Image source={cart} />
       <View className="gap-1 items-center">
         <Text className="text-color_black font-inter_bold text-3xl">

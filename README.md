@@ -39,7 +39,8 @@ Entre as principais funcionalidades implementadas estão:
 - Visualização dos detalhes de um produto;
 - Gerenciamento de produtos favoritos;
 - Navegação protegida por autenticação;
-- Persistência da sessão do usuário;
+- Persistência local da sessão do usuário, carrinho e produtos favoritos utilizando SQLite;
+- O carrinho e os produtos favoritos são persistidos localmente em SQLite.
 - Interface responsiva baseada em um protótipo do Figma.
 
 Como se trata de um projeto demonstrativo, nenhuma informação é persistida em um banco de dados real.
@@ -54,19 +55,18 @@ https://www.figma.com/design/J7T5ggRKlo813JN73AHD4c/Ecommerce-Elevata?node-id=0-
 
 O protótipo contempla toda a experiência da aplicação, incluindo:
 
-- Tela de Login;
-- Tela Inicial;
-- Listagem de Produtos;
-- Pesquisa de Produtos;
-- Detalhes do Produto;
-- Produtos Favoritos;
-- Componentes reutilizáveis;
-- Guia de cores;
-- Tipografia;
-- Espaçamentos;
-- Ícones e elementos visuais.
+- Autenticação de usuários;
+- Listagem de produtos;
+- Pesquisa de produtos;
+- Visualização dos detalhes de um produto;
+- Gerenciamento de produtos favoritos;
+- Carrinho de compras;
+- Navegação protegida por autenticação;
+- Persistência segura da sessão do usuário utilizando Expo SecureStore;
+- Persistência local do carrinho de compras e dos produtos favoritos utilizando Expo SQLite;
+- Interface responsiva baseada em um protótipo do Figma.
 
-Todo o desenvolvimento da interface buscou manter fidelidade ao design proposto no Figma.
+Como se trata de um projeto demonstrativo, os dados da aplicação são obtidos por meio da API pública **DummyJSON**. A aplicação não possui um banco de dados remoto próprio; entretanto, informações como a sessão do usuário, o carrinho de compras e os produtos favoritos são persistidas localmente utilizando **Expo SecureStore** e **Expo SQLite**.
 
 ---
 
@@ -105,13 +105,14 @@ https://pravatar.cc/
 - React Native
 - Expo
 - Expo Router
+- Expo SQLite
+- Expo SecureStore (Secure Storage)
 - TypeScript
 - NativeWind (Tailwind CSS)
 - Axios
 - React Query (TanStack)
 - React Hook Form
 - Zod
-- AsyncStorage
 - Zustand
 
 ### Versões do ambiente
@@ -269,20 +270,16 @@ src/
 │       ├── home.tsx
 │       └── success.tsx
 │
-├── config/
-├── features/
-│   ├── auth/
-│   │   ├── assets/
-│   │   ├── components/
-│   │   ├── hooks/
-│   │   ├── schemas/
-│   │   ├── screens/
-│   │   ├── services/
-│   │   └── types/
-│   └── shopping/
-│       ├── components/
-│       └── screens/
-├── providers/
+├── assets/
+├── components/
+├── constants/
+├── contexts/
+├── database/
+│   ├── database.ts
+│   ├── migrations.ts
+│   └── repositories/
+├── hooks/
+├── models/
 ├── services/
 ├── shared/
 │   ├── components/
@@ -435,7 +432,22 @@ Contém a configuração do Axios e os serviços responsáveis pelo consumo dos 
 
 ---
 
-## providers/
+## database/
+
+Responsável pela persistência local dos dados da aplicação utilizando **Expo SQLite**.
+
+Essa camada centraliza toda a comunicação com o banco de dados local, incluindo:
+
+- Criação e configuração do banco;
+- Migrations;
+- Repositories;
+- Persistência do carrinho;
+- Persistência dos produtos favoritos;
+- Persistência da sessão do usuário.
+
+A utilização de uma camada dedicada de banco de dados mantém a aplicação desacoplada da tecnologia de persistência, facilitando futuras evoluções e manutenção do projeto.
+
+## viewmodels/
 
 Gerencia provedores globais da aplicação, como contextos e integrações de bibliotecas.
 
@@ -481,4 +493,4 @@ Este projeto tem como objetivo exclusivamente para fins de estudo, demonstraçã
 
 O Ecommerce Elevata é um projeto de demonstração técnica voltado para apresentar uma implementação moderna de um app mobile com React Native, Expo, Expo Router, NativeWind e arquitetura MVVM.
 
-A proposta é mostrar, de forma prática e organizada, como estruturar um aplicativo com navegação, autenticação, consumo de APIs públicas e boas práticas de desenvolvimento, mantendo o código limpo, modular e preparado para evolução.
+Além do consumo da API pública DummyJSON, a aplicação utiliza **Expo SQLite** para persistência local de informações como sessão do usuário, carrinho de compras e produtos favoritos, simulando uma estratégia de armazenamento comum em aplicações mobile. E toda a estrutura foi planejada para reproduzir a organização encontrada em aplicações reais.

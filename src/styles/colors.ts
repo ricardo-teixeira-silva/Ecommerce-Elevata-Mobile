@@ -8,4 +8,5 @@ export const colors = {
   color_blue_strong: "#004BE3",
   color_slate: "#515B70",
   color_slate_dark: "#565E71",
+  color_yellow_gold: "#EAB308",
 };

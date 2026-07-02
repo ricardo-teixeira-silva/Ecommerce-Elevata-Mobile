@@ -1,4 +1,5 @@
 import { useMutation, useQuery } from "@tanstack/react-query";
+import { getListBestRated } from "../../services/best-rated.services";
 import { getListCategories } from "../../services/categories.services";
 import { searchProducts } from "../../services/search.services";
 
@@ -18,6 +19,11 @@ export const useHomeModel = () => {
     queryFn: getListCategories,
   });
 
+  const bestRatedQuery = useQuery({
+    queryKey: ["best-rated"],
+    queryFn: getListBestRated,
+  });
+
   const handleSearchProducts = (search: string) => {
     mutationProducts.mutate(search);
   };
@@ -27,5 +33,7 @@ export const useHomeModel = () => {
     isLoadingProducts: mutationProducts.isPending,
     categories: categoriesQuery.data ?? [],
     isLoadingCategories: categoriesQuery.isPending,
+    bestRatedProducts: bestRatedQuery.data,
+    isLoadingBestRatedProducts: bestRatedQuery.isPending,
   };
 };

@@ -1,23 +1,8 @@
 import { FlatList, Text, TouchableOpacity, View } from "react-native";
-import { ListCategoriesResponse } from "../../../shared/types/categories";
-import { CategoryItem } from "./category-item";
-import { SkeletonCategoryCarousel } from "./skeleton-category-carousel";
+import { ProductCard } from "./product-card";
 
-type CategoryCarouselProps = {
-  categories: Array<ListCategoriesResponse>;
-  loading?: boolean;
-};
-
-export const CategoryCarousel = ({
-  categories,
-  loading,
-}: CategoryCarouselProps) => {
-  if (loading) {
-    return <SkeletonCategoryCarousel />;
-  }
-
-  const ITEM_WIDTH = 80;
-  const ITEM_SPACING = 16;
+export const BestRatedCarousel = () => {
+  const ITEM_SPACING = 12;
 
   return (
     <View className="gap-2">
@@ -33,14 +18,14 @@ export const CategoryCarousel = ({
       </View>
       <FlatList
         horizontal
-        data={categories}
-        keyExtractor={(item) => item.slug}
+        data={Array.from({ length: 10 })}
+        keyExtractor={(_, index) => index.toString()}
         showsHorizontalScrollIndicator={false}
         contentContainerStyle={{ alignSelf: "flex-start", gap: ITEM_SPACING }}
-        snapToInterval={ITEM_WIDTH + ITEM_SPACING}
+        snapToInterval={76}
         snapToAlignment="start"
         decelerationRate="fast"
-        renderItem={({ item }) => <CategoryItem categories={item} />}
+        renderItem={({ index }) => <ProductCard data={[]} showRating />}
       />
     </View>
   );

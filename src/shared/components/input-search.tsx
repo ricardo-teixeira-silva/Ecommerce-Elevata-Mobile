@@ -9,9 +9,14 @@ type SearchInputDataTypes = {
 
 type InputSearchProps = TextInputProps & {
   onSearch?: (value: string) => void;
+  loading?: boolean;
 };
 
-export const InputSearch = ({ onSearch, ...rest }: InputSearchProps) => {
+export const InputSearch = ({
+  onSearch,
+  loading,
+  ...rest
+}: InputSearchProps) => {
   const { control, handleSubmit } = useForm<SearchInputDataTypes>();
 
   const handleSearch = (data: SearchInputDataTypes) => {
@@ -26,6 +31,7 @@ export const InputSearch = ({ onSearch, ...rest }: InputSearchProps) => {
       onSubmitEditing={handleSubmit(handleSearch)}
       iconLeft={<Fontisto name="search" size={18} color="#737687" />}
       placeholderTextColor="#515B70"
+      loading={loading}
       {...rest}
     />
   );

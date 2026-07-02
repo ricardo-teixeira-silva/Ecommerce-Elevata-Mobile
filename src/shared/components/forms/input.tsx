@@ -1,7 +1,9 @@
+import { colors } from "@/src/styles/colors";
 import Ionicons from "@expo/vector-icons/Ionicons";
 import { ReactElement, useState } from "react";
 import { Controller, FieldValues, UseControllerProps } from "react-hook-form";
 import {
+  ActivityIndicator,
   Text,
   TextInput,
   TextInputProps,
@@ -12,12 +14,12 @@ import {
 export type InputProps = TextInputProps & {
   name: string;
   iconLeft?: ReactElement;
-  iconRight?: ReactElement;
+  loading?: boolean;
 };
 
 export const Input = <T extends FieldValues>({
   iconLeft,
-  iconRight,
+  loading,
   secureTextEntry,
   name,
   control,
@@ -53,9 +55,9 @@ export const Input = <T extends FieldValues>({
                   <Ionicons name="eye-outline" size={24} color="#737687" />
                 )}
               </TouchableOpacity>
-            ) : (
-              iconRight
-            )}
+            ) : loading ? (
+              <ActivityIndicator color={colors.color_blue} size={25} />
+            ) : null}
           </View>
           {fieldState.error?.message ? (
             <Text className="text-red-400 text-[10px] px-2">

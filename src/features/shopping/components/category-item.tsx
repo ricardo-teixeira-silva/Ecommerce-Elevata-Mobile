@@ -5,7 +5,7 @@ import { mapCategoryToUI } from "../utils/functions/translateCategoriesToPtBR";
 export const CategoryItem = ({ categories }: CategoryItemProps) => {
   return (
     <TouchableOpacity
-      className="w-20 items-start justify-start mr-4 gap-1"
+      className="w-20 items-start justify-start gap-1"
       onPress={() => console.log({ url: categories.url })}
     >
       <View className="bg-[#EDEEEF] w-full h-16 rounded-2xl items-center justify-center">

@@ -1,16 +1,19 @@
-import { FlatList, Text, TouchableOpacity, View } from "react-native";
+import { FlatList } from "react-native";
 import { ListCategoriesResponse } from "../../../shared/types/categories";
 import { CategoryItem } from "./category-item";
 import { SkeletonCategoryCarousel } from "./skeleton-category-carousel";
+import { TitleAction } from "./title-action";
 
 type CategoryCarouselProps = {
   categories: Array<ListCategoriesResponse>;
   loading?: boolean;
+  onPressActionLabel?: () => void;
 };
 
 export const CategoryCarousel = ({
   categories,
   loading,
+  onPressActionLabel,
 }: CategoryCarouselProps) => {
   if (loading) {
     return <SkeletonCategoryCarousel />;
@@ -20,17 +23,11 @@ export const CategoryCarousel = ({
   const ITEM_SPACING = 16;
 
   return (
-    <View className="gap-2">
-      <View className="flex-row justify-between">
-        <Text className="leading-10 text-color_black text-lg font-semibold">
-          Categorias
-        </Text>
-        <TouchableOpacity className="h-12 items-center justify-center">
-          <Text className="font-inter_medium text-color_blue_strong text-sm">
-            Ver tudo
-          </Text>
-        </TouchableOpacity>
-      </View>
+    <TitleAction
+      title="Categorias"
+      actionLabel="Ver tudo"
+      onPress={onPressActionLabel}
+    >
       <FlatList
         horizontal
         data={categories}
@@ -42,6 +39,6 @@ export const CategoryCarousel = ({
         decelerationRate="fast"
         renderItem={({ item }) => <CategoryItem categories={item} />}
       />
-    </View>
+    </TitleAction>
   );
 };

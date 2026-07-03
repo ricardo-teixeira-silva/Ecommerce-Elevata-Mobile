@@ -1,7 +1,8 @@
 import { useMutation, useQuery } from "@tanstack/react-query";
-import { getListBestRated } from "../../services/best-rated.services";
-import { getListCategories } from "../../services/categories.services";
-import { searchProducts } from "../../services/search.services";
+import { getListBestRated } from "../../services/best-rated.service";
+import { getListCategories } from "../../services/categories.service";
+import { getFlashproducts } from "../../services/flash-products.service";
+import { searchProducts } from "../../services/search.service";
 
 export const useHomeModel = () => {
   const mutationProducts = useMutation({
@@ -24,6 +25,11 @@ export const useHomeModel = () => {
     queryFn: getListBestRated,
   });
 
+  const flashProductsQuery = useQuery({
+    queryKey: ["flash-products"],
+    queryFn: getFlashproducts,
+  });
+
   const handleSearchProducts = (search: string) => {
     mutationProducts.mutate(search);
   };
@@ -35,5 +41,7 @@ export const useHomeModel = () => {
     isLoadingCategories: categoriesQuery.isPending,
     bestRatedProducts: bestRatedQuery.data ?? [],
     isLoadingBestRatedProducts: bestRatedQuery.isPending,
+    flashProducts: flashProductsQuery.data ?? [],
+    isLoadingFlashProducts: flashProductsQuery.isPending,
   };
 };

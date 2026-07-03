@@ -1,26 +1,25 @@
-import { FlatList, Text, TouchableOpacity, View } from "react-native";
+import { FlatList } from "react-native";
 import { Product } from "../types/product";
 import { ProductCard } from "./product-card";
+import { TitleAction } from "./title-action";
 
 type BestRatedCarouselProps = {
   data: Array<Product> | [];
+  onPressActionLabel?: () => void;
 };
 
-export const BestRatedCarousel = ({ data }: BestRatedCarouselProps) => {
+export const BestRatedCarousel = ({
+  data,
+  onPressActionLabel,
+}: BestRatedCarouselProps) => {
   const ITEM_SPACING = 12;
 
   return (
-    <View className="gap-2">
-      <View className="flex-row justify-between">
-        <Text className="leading-10 text-color_black text-lg font-semibold">
-          Mais Vendidos
-        </Text>
-        <TouchableOpacity className="h-12 items-center justify-center">
-          <Text className="font-inter_medium text-color_blue_strong text-sm">
-            Ver tudo
-          </Text>
-        </TouchableOpacity>
-      </View>
+    <TitleAction
+      title="Mais vendidos"
+      actionLabel="Ver tudo"
+      onPress={onPressActionLabel}
+    >
       <FlatList
         horizontal
         data={data}
@@ -32,6 +31,6 @@ export const BestRatedCarousel = ({ data }: BestRatedCarouselProps) => {
         decelerationRate="fast"
         renderItem={({ item }) => <ProductCard data={item} showRating />}
       />
-    </View>
+    </TitleAction>
   );
 };

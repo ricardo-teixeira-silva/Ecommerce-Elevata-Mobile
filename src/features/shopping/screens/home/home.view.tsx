@@ -2,7 +2,9 @@ import { Container } from "@/src/shared/components";
 import { InputSearch } from "@/src/shared/components/input-search";
 import { BestRatedCarousel } from "../../components/best-rated-carousel";
 import { CategoryCarousel } from "../../components/category-carousel";
+import { LimitedStockCarousel } from "../../components/limited-stock-carousel";
 import { OfferBanner } from "../../components/offer-banner";
+import { ProductBanner } from "../../components/product-banner";
 import { useHomeModel } from "./home.model";
 
 export default function Home() {
@@ -13,6 +15,8 @@ export default function Home() {
     isLoadingCategories,
     bestRatedProducts,
     isLoadingBestRatedProducts,
+    flashProducts,
+    isLoadingFlashProducts,
   } = useHomeModel();
 
   return (
@@ -25,6 +29,11 @@ export default function Home() {
       <OfferBanner />
       <CategoryCarousel categories={categories} loading={isLoadingCategories} />
       <BestRatedCarousel data={bestRatedProducts} />
+      <LimitedStockCarousel
+        data={flashProducts}
+        loading={isLoadingFlashProducts}
+      />
+      <ProductBanner />
     </Container>
   );
 }

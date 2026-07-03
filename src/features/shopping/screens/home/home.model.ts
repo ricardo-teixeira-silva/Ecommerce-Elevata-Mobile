@@ -33,7 +33,7 @@ export const useHomeModel = () => {
     isLoadingProducts: mutationProducts.isPending,
     categories: categoriesQuery.data ?? [],
     isLoadingCategories: categoriesQuery.isPending,
-    bestRatedProducts: bestRatedQuery.data,
+    bestRatedProducts: bestRatedQuery.data ?? [],
     isLoadingBestRatedProducts: bestRatedQuery.isPending,
   };
 };

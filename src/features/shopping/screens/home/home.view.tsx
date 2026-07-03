@@ -24,7 +24,7 @@ export default function Home() {
       />
       <OfferBanner />
       <CategoryCarousel categories={categories} loading={isLoadingCategories} />
-      <BestRatedCarousel />
+      <BestRatedCarousel data={bestRatedProducts} />
     </Container>
   );
 }

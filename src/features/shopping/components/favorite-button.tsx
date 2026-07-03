@@ -18,7 +18,7 @@ export const FavoriteButton = ({ isFavorite = false }: FavoriteButtonProps) => {
           />
         </TouchableOpacity>
       ) : (
-        <TouchableOpacity className="bg-[#888383e1] w-8 h-8 rounded-full items-center justify-center">
+        <TouchableOpacity className="bg-[#88838325] w-8 h-8 rounded-full items-center justify-center">
           <MaterialCommunityIcons
             name="cards-heart-outline"
             size={16}

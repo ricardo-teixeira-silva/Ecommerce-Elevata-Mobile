@@ -45,6 +45,10 @@ Entre as principais funcionalidades implementadas estão:
 
 Como se trata de um projeto demonstrativo, nenhuma informação é persistida em um banco de dados real.
 
+🖼️ **Screenshots das principais telas:**
+
+<img width="800" alt="screenshot" src="https://github.com/user-attachments/assets/92b0357f-6a93-4545-9b88-662e1f628868" />
+
 ---
 
 # Protótipo no Figma

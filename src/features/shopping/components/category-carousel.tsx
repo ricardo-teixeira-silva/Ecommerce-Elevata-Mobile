@@ -15,9 +15,12 @@ export const CategoryCarousel = ({
   loading,
   onPressActionLabel,
 }: CategoryCarouselProps) => {
-  if (loading) {
-    return <SkeletonCategoryCarousel />;
-  }
+  const renderItem = ({ item }: { item: ListCategoriesResponse }) => {
+    if (loading) {
+      return <SkeletonCategoryCarousel />;
+    }
+    return <CategoryItem categories={item} />;
+  };
 
   const ITEM_WIDTH = 80;
   const ITEM_SPACING = 16;
@@ -37,7 +40,7 @@ export const CategoryCarousel = ({
         snapToInterval={ITEM_WIDTH + ITEM_SPACING}
         snapToAlignment="start"
         decelerationRate="fast"
-        renderItem={({ item }) => <CategoryItem categories={item} />}
+        renderItem={renderItem}
       />
     </TitleAction>
   );

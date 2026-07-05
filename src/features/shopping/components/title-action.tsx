@@ -23,7 +23,7 @@ export const TitleAction = ({
             {title}
           </Text>
           {badgeTitle && (
-            <Text className="bg-[#BA1A1A] text-white font-inter_bold text-[10px] px-3 py-1 rounded-full">
+            <Text className="bg-color_red text-white font-inter_bold text-[10px] px-3 py-1 rounded-full">
               {badgeTitle.toUpperCase()}
             </Text>
           )}

@@ -9,4 +9,5 @@ export const colors = {
   color_slate: "#515B70",
   color_slate_dark: "#565E71",
   color_yellow_gold: "#EAB308",
+  color_red: "#BA1A1A",
 };

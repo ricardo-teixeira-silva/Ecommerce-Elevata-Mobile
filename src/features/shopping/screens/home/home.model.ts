@@ -1,7 +1,7 @@
 import { useMutation, useQuery } from "@tanstack/react-query";
 import { getListBestRated } from "../../services/best-rated.service";
 import { getListCategories } from "../../services/categories.service";
-import { getFlashproducts } from "../../services/flash-products.service";
+import { getFlashProducts } from "../../services/flash-products.service";
 import { searchProducts } from "../../services/search.service";
 
 export const useHomeModel = () => {
@@ -27,7 +27,7 @@ export const useHomeModel = () => {
 
   const flashProductsQuery = useQuery({
     queryKey: ["flash-products"],
-    queryFn: getFlashproducts,
+    queryFn: getFlashProducts,
   });
 
   const handleSearchProducts = (search: string) => {

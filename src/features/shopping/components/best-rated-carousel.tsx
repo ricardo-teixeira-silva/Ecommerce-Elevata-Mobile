@@ -23,7 +23,7 @@ export const BestRatedCarousel = ({
       <FlatList
         horizontal
         data={data}
-        keyExtractor={(_, index) => index.toString()}
+        keyExtractor={(item) => item.id.toString()}
         showsHorizontalScrollIndicator={false}
         contentContainerStyle={{ alignSelf: "flex-start", gap: ITEM_SPACING }}
         snapToInterval={76}

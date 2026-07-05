@@ -1,6 +1,6 @@
 import FontAwesome5 from "@expo/vector-icons/FontAwesome5";
 import { StatusBar } from "expo-status-bar";
-import { ImageBackground, Text, View } from "react-native";
+import { ActivityIndicator, ImageBackground, Text, View } from "react-native";
 import { SafeAreaProvider, SafeAreaView } from "react-native-safe-area-context";
 import background from "../../assets/images/background_success.png";
 import { useSuccess } from "./success.model";
@@ -29,9 +29,12 @@ export default function Success() {
                 Login realizado com sucesso. Estamos preparando sua experiência
                 premium.
               </Text>
-              <Text className="font-inter_semibold text-color_blue">
-                Redirecionando...
-              </Text>
+              <View className="flex-row gap-1">
+                <ActivityIndicator size="small" color="#3366FF" />
+                <Text className="font-inter_semibold text-color_blue">
+                  Redirecionando...
+                </Text>
+              </View>
             </View>
             <View className="flex-1 justify-end pb-6">
               <Text className="font-inter_medium text-[#737687] text-xs text-center">

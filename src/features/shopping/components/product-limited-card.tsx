@@ -3,17 +3,9 @@ import { Product } from "../types/product";
 
 type ProductLimitedCardProps = {
   data: Product;
-  loading?: boolean;
 };
 
-export const ProductLimitedCard = ({
-  data,
-  loading,
-}: ProductLimitedCardProps) => {
-  if (loading) {
-    return <Text>Carregando...</Text>;
-  }
-
+export const ProductLimitedCard = ({ data }: ProductLimitedCardProps) => {
   const getTitle = (title: string): string => {
     return title.trim().split(/\s+/).slice(0, 2).join(" ");
   };

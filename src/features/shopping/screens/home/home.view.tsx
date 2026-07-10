@@ -28,7 +28,10 @@ export default function Home() {
       />
       <OfferBanner />
       <CategoryCarousel categories={categories} loading={isLoadingCategories} />
-      <BestRatedCarousel data={bestRatedProducts} />
+      <BestRatedCarousel
+        data={bestRatedProducts}
+        loading={isLoadingBestRatedProducts}
+      />
       <LimitedStockCarousel
         data={flashProducts}
         loading={isLoadingFlashProducts}

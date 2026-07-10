@@ -38,32 +38,24 @@ const usePulseColor = () => {
   });
 };
 
-const HeaderSkeleton = () => {
-  const anim = usePulseColor();
-
-  return (
-    <View className="flex-row justify-between items-center">
-      <Animated.View style={anim} className="h-6 w-24 rounded-full" />
-      <Animated.View style={anim} className="h-6 w-16 rounded-full" />
-    </View>
-  );
-};
-
 const SkeletonBlock = () => {
   const anim = usePulseColor();
 
   return (
-    <Animated.View className="w-20 items-center justify-start mr-4">
-      <Animated.View style={anim} className="w-full h-16 rounded-2xl" />
-      <Animated.View style={anim} className="mt-2 h-3 w-12 rounded-full" />
-    </Animated.View>
+    <View className="mr-4 w-[170px] p-4 bg-white rounded-3xl">
+      <View className="items-center">
+        <Animated.View style={anim} className="w-full h-[140px] rounded-3xl" />
+        <Animated.View style={anim} className="mt-2 h-4 w-24 rounded-full" />
+        <Animated.View style={anim} className="mt-1 h-3 w-32 rounded-full" />
+        <Animated.View style={anim} className="mt-2 h-5 w-16 rounded-full" />
+      </View>
+    </View>
   );
 };
 
-export const SkeletonCategoryCarousel = () => {
+export const SkeletonRatedCarousel = () => {
   return (
-    <View className="gap-2 top-4">
-      <HeaderSkeleton />
+    <View className="gap-2">
       <View className="flex-row">
         {SKELETON_ITEMS.map((_, index) => (
           <SkeletonBlock key={index} />

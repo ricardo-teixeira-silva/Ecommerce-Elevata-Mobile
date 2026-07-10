@@ -1,7 +1,7 @@
 import { FlatList } from "react-native";
 import { ListCategoriesResponse } from "../../../shared/types/categories";
 import { CategoryItem } from "./category-item";
-import { SkeletonCategoryCarousel } from "./skeleton-category-carousel";
+import { SkeletonCategoryCarousel } from "./skeleton/skeleton-category-carousel";
 import { TitleAction } from "./title-action";
 
 type CategoryCarouselProps = {
@@ -15,15 +15,20 @@ export const CategoryCarousel = ({
   loading,
   onPressActionLabel,
 }: CategoryCarouselProps) => {
-  const renderItem = ({ item }: { item: ListCategoriesResponse }) => {
-    if (loading) {
-      return <SkeletonCategoryCarousel />;
-    }
-    return <CategoryItem categories={item} />;
-  };
-
   const ITEM_WIDTH = 80;
   const ITEM_SPACING = 16;
+
+  if (loading) {
+    return (
+      <TitleAction
+        title="Mais vendidos"
+        actionLabel="Ver tudo"
+        onPress={onPressActionLabel}
+      >
+        <SkeletonCategoryCarousel />
+      </TitleAction>
+    );
+  }
 
   return (
     <TitleAction
@@ -40,7 +45,7 @@ export const CategoryCarousel = ({
         snapToInterval={ITEM_WIDTH + ITEM_SPACING}
         snapToAlignment="start"
         decelerationRate="fast"
-        renderItem={renderItem}
+        renderItem={({ item }) => <CategoryItem categories={item} />}
       />
     </TitleAction>
   );

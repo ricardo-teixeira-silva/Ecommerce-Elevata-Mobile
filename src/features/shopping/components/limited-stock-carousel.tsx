@@ -1,6 +1,7 @@
-import { FlatList, Text } from "react-native";
+import { FlatList } from "react-native";
 import { Product } from "../types/product";
 import { ProductLimitedCard } from "./product-limited-card";
+import { SkeletonLimitedStockCarousel } from "./skeleton";
 import { TitleAction } from "./title-action";
 
 type LimitedStockCarouselProps = {
@@ -16,12 +17,18 @@ export const LimitedStockCarousel = ({
 }: LimitedStockCarouselProps) => {
   const ITEM_SPACING = 12;
 
-  const renderItem = ({ item }: { item: Product | any }) => {
-    if (loading) {
-      return <Text>Carregando...</Text>;
-    }
-    return <ProductLimitedCard data={item} />;
-  };
+  if (loading) {
+    return (
+      <TitleAction
+        title="Estoque Limitado"
+        actionLabel="Ver tudo"
+        badgeTitle="Flash"
+        onPress={onPressActionLabel}
+      >
+        <SkeletonLimitedStockCarousel />
+      </TitleAction>
+    );
+  }
 
   return (
     <TitleAction
@@ -39,7 +46,7 @@ export const LimitedStockCarousel = ({
         snapToInterval={76}
         snapToAlignment="start"
         decelerationRate="fast"
-        renderItem={renderItem}
+        renderItem={({ item }) => <ProductLimitedCard data={item} />}
       />
     </TitleAction>
   );
